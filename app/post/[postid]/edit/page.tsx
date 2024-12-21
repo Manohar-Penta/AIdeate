@@ -23,7 +23,9 @@ export default async function page({
   const { postid: id } = await params;
   const data = await prisma.post.findFirst({ where: { id } });
 
-  if (!session || data?.userId != session.user?.id || !data) redirect("/404");
+  if (!session || data?.userId != session.user?.id || !data) {
+    throw new Error("Unauthorized");
+  }
 
   return (
     <>

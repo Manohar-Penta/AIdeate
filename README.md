@@ -1,14 +1,3 @@
-## Features :
-
-    - User can browse through different Blogs
-        - Personal : posts from people you follow
-        - Explore
-    - User can create blogs
-        - AI assistance for writing
-        - Image uploads
-        - unsplash api integration for images
-        - Feature rich editor for best writing experience.
-
 # AIdeate
 
 AIdeate is an AI-assisted blogging platform that allows users to create, explore, and share blogs. With its AI writing assistance and feature-rich editor, users can craft compelling content effortlessly. The platform also integrates image uploads and Unsplash API to enhance blog visuals.

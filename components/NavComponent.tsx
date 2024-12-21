@@ -45,7 +45,7 @@ export async function NavComponent() {
                 </>
               )}
             </ul>
-            <ModeToggle className="2xl:block right-4" />
+            <ModeToggle className="sm:block right-4 hidden" />
           </div>
         </div>
       </nav>

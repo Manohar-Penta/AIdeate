@@ -6,7 +6,7 @@ export default async function page() {
   const session = await auth();
 
   if (!session) {
-    redirect("/404");
+    throw new Error("Unauthorized");
   }
 
   return (

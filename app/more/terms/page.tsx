@@ -1,4 +1,5 @@
 import { NavComponent } from "@/components/NavComponent";
+import Link from "next/link";
 import React from "react";
 
 export default function page() {
@@ -119,12 +120,12 @@ export default function page() {
           {
             "If you have any questions or concerns about these terms, feel free to reach out to us via email at "
           }
-          <a
+          <Link
             href="mailto:manoharpenta456@gmail.com"
             className="text-blue-600 hover:underline"
           >
             support@AIdeate.com
-          </a>
+          </Link>
           .
         </p>
 

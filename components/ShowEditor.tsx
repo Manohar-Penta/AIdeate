@@ -10,7 +10,7 @@ export function ShowEditorPage({
   data: { content: string; title: string };
 }) {
   const ref = useRef<EditorJS | undefined>(undefined);
-  const [title, setTitle] = useState<String>("");
+  const [title, setTitle] = useState<string>("");
 
   useEffect(() => {
     const jsonContent = JSON.parse(data.content);

@@ -39,9 +39,9 @@ export default function Footer() {
                     </DialogDescription>
                   </DialogHeader>
                   <DialogFooter>
-                    <a href="mailto:manoharpenta456@gmail.com">
+                    <Link href="mailto:manoharpenta456@gmail.com">
                       <Button>Send a Email</Button>
-                    </a>
+                    </Link>
                   </DialogFooter>
                 </DialogContent>
               </Dialog>

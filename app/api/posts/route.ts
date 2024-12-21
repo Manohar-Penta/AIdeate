@@ -14,7 +14,7 @@ async function handler(req: Request) {
 }
 
 async function getPosts(req: Request) {
-  let { searchParams } = new URL(req.url);
+  const { searchParams } = new URL(req.url);
   let page = Number(searchParams.get("page"));
   if (!page) page = 1;
   const postsCount = await prisma.post.count();
@@ -29,7 +29,6 @@ async function getPosts(req: Request) {
       _count: true,
     },
   });
-  const status = postData ? 200 : 404;
   return new Response(
     JSON.stringify({ data: postData, pages, currPage: page })
   );

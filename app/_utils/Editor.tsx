@@ -3,6 +3,7 @@ import { Input } from "@/components/ui/input";
 import * as ReactDomServer from "react-dom/server";
 import { HiMiniH1, HiMiniH2, HiMiniH3 } from "react-icons/hi2";
 import type EditorJS from "@editorjs/editorjs";
+import { ToolConstructable } from "@editorjs/editorjs";
 
 export async function initiate(
   ref: React.RefObject<any | undefined>,
@@ -60,6 +61,7 @@ export async function initiate(
           inlineToolbar: true,
         },
         aiContent: {
+          // @ts-expect-error
           class: AIContent,
           inlineToolbar: true,
         },
@@ -260,7 +262,7 @@ class AIContent {
 
     this.container.innerHTML = input;
 
-    this.container.childNodes[1].addEventListener("click", async (event) => {
+    this.container.childNodes[1].addEventListener("click", async () => {
       const string = (
         this.container.childNodes[0] as HTMLInputElement
       ).value.trim();

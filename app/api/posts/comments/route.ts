@@ -22,7 +22,6 @@ async function getComments(req: Request) {
       postId: postid,
     },
   });
-  const status = data ? 200 : 404;
 
   return new Response(
     JSON.stringify({ data, currPage: page, pages: Math.ceil(count / 5) })
