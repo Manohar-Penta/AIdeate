@@ -161,8 +161,8 @@ function GetUserPosts({
                               );
                               // console.log(response);
                               if (response.status === 200) {
-                                window.location.reload();
-                                // refetch();
+                                // window.location.reload();
+                                refetch();
                               }
                             }}
                           >

@@ -32,7 +32,7 @@ export function ShowEditorPage({
           {title}
         </h1>
         <div
-          className="border border-border rounded-md flex-grow min-h-[95vh]"
+          className="border border-border rounded-md flex-grow min-h-[95vh] editorjs"
           id="editorjs"
         ></div>
       </div>

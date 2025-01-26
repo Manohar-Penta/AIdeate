@@ -81,7 +81,7 @@ export function GetAllPosts({ page = 1 }: { page?: number }) {
           return (
             <Link href={`/post/${post.id}`} key={post.id} className="">
               <div className="border-2 border-border rounded-lg p-2 hover:text-secondary-foreground hover:bg-secondary hover:p-3 transition-all ease-in-out">
-                <h2 className="text-xl md:text-3xl font-serif font-light overflow-hidden">
+                <h2 className="text-xl md:text-3xl font-serif font-light overflow-hidden whitespace-nowrap overflow-ellipsis">
                   {post.title}
                 </h2>
                 <div className="flex justify-start gap-2 items-center">

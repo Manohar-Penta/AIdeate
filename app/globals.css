@@ -6,7 +6,7 @@ body {
   font-family: Arial, Helvetica, sans-serif;
 }
 
-* {
+.text-clipped-nowrap {
   /* overflow: hidden; */
   text-overflow: ellipsis;
   white-space: nowrap;
