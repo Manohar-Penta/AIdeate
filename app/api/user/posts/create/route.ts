@@ -4,8 +4,9 @@ import { prisma } from "@/utils/prisma";
 
 export const POST = async function handler(req: Request) {
   const session = await auth();
-  const { title, content } = await req.json();
-  let { id } = await req.json();
+  const reqBody = await req.json();
+  const { title, content } = reqBody;
+  let { id } = reqBody;
   if (!id) id = "monkey";
   const result = PostSchema.safeParse({ title, content });
   if (session && session.user && result.success) {

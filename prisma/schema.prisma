@@ -17,14 +17,12 @@ model User {
   sessions      Session[]
   Authenticator Authenticator[]
 
-  createdAt   DateTime   @default(now())
-  updatedAt   DateTime   @updatedAt
-  Posts       Post[]
-  Comment     Comment[]
-  Following   Following? @relation(fields: [followingId], references: [id])
-  followingId String?
-  Followers   Followers? @relation(fields: [followersId], references: [id])
-  followersId String?
+  createdAt DateTime    @default(now())
+  updatedAt DateTime    @updatedAt
+  Posts     Post[]
+  Comment   Comment[]
+  Following Following[]
+  Followers Followers[]
 }
 
 model Post {
@@ -54,13 +52,21 @@ model Comment {
 }
 
 model Following {
-  id   String @id @default(uuid())
-  user User[]
+  id          String @id @default(uuid())
+  followingId String
+  User        User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId      String
+
+  @@unique([userId, followingId])
 }
 
 model Followers {
-  id   String @id @default(uuid())
-  user User[]
+  id         String @id @default(uuid())
+  followerId String
+  User       User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+  userId     String
+
+  @@unique([userId, followerId])
 }
 
 model Account {

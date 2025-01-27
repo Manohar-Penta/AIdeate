@@ -18,20 +18,20 @@ export default async function page({
       Posts: {
         where: {},
       },
-      Followers: {
-        where: {},
-        select: { _count: true },
-      },
-      Following: {
-        where: {},
-        select: { _count: true },
-      },
     },
+  });
+
+  const userFollowers = await prisma.followers.count({
+    where: { userId: userid },
+  });
+
+  const userFollowing = await prisma.following.count({
+    where: { userId: userid },
   });
 
   return (
     <div className="p-2">
-      <div className="flex border-4 border-border rounded-md p-2 m-2 items-center gap-4 justify-center mx-auto max-w-xl">
+      <div className="flex rounded-md p-4 m-2 items-center gap-4 justify-center mx-auto max-w-xl">
         <img
           src={userData?.image as string}
           alt=""
@@ -49,12 +49,12 @@ export default async function page({
             <p className="text-xs text-center">
               Followers
               <br />
-              {userData?.Followers?._count.user || 0}
+              {userFollowers}
             </p>
             <p className="text-xs text-center">
               Following
               <br />
-              {userData?.Following?._count.user || 0}
+              {userFollowing}
             </p>
           </div>
         </div>

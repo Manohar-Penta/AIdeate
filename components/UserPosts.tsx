@@ -100,7 +100,7 @@ function GetUserPosts({
     );
 
   return (
-    <div className="max-w-5xl mx-auto">
+    <div className="mx-auto min-h-[60vh] flex flex-col items-stretch max-w-screen-sm min-w-[40vw]">
       {error && <div>{error.message}</div>}
       {data?.pages.map(
         (page: { data: Post[]; currPage: number; pages: number }) =>

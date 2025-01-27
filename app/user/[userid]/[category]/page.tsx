@@ -13,25 +13,28 @@ export default async function page({
   }>;
 }) {
   const { userid, category } = await params;
+  console.log("category primary page : ", category, userid);
   const session = await auth();
   return (
     <div>
       <ProfileNav userid={userid} category={category} />
-      {category == "posts" && (
-        <UserPosts userid={userid} personal={session?.user?.id === userid} />
-      )}
-      {category == "following" && (
-        <UserFollowing
-          userid={userid}
-          personal={session?.user?.id === userid}
-        />
-      )}
-      {category == "followers" && (
-        <UserFollowers
-          userid={userid}
-          personal={session?.user?.id === userid}
-        />
-      )}
+      <div className="flex justify-center">
+        {category == "posts" && (
+          <UserPosts userid={userid} personal={session?.user?.id === userid} />
+        )}
+        {category == "following" && (
+          <UserFollowing
+            userid={userid}
+            personal={session?.user?.id === userid}
+          />
+        )}
+        {category == "followers" && (
+          <UserFollowers
+            userid={userid}
+            personal={session?.user?.id === userid}
+          />
+        )}
+      </div>
     </div>
   );
 }
