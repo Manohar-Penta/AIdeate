@@ -15,12 +15,22 @@ async function handler(req: Request) {
 
 async function getPosts(req: Request) {
   const { searchParams } = new URL(req.url);
+  const session = await auth();
   let page = Number(searchParams.get("page"));
   if (!page) page = 1;
   const postsCount = await prisma.post.count();
   const pages =
     Number((postsCount / 10).toFixed(0)) + (postsCount % 10 > 0 ? 1 : 0);
   const postData = await prisma.post.findMany({
+    where: {
+      userId: {
+        notIn: (
+          await prisma.following.findMany({
+            where: { userId: session.user.id },
+          })
+        ).map((data) => data.followingId),
+      },
+    },
     skip: (page - 1) * 10,
     take: 10,
     orderBy: { createdAt: "desc" },

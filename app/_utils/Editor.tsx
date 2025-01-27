@@ -20,7 +20,6 @@ export async function initiate(
     const editor = new EditorJS({
       autofocus: !readOnly,
       placeholder: "Tell your story...",
-      minHeight: 300,
       readOnly,
       data: data,
       tools: {

@@ -22,7 +22,7 @@ export default function page({
               personal ? "" : "text-primary-foreground bg-primary"
             )}
           >
-            Recent Posts
+            Discover
           </Link>
           <Link
             href={"/?personal=true"}

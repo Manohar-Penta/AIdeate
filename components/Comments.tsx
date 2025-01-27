@@ -114,12 +114,12 @@ function CommentsComponent({
     queryKey: ["comments"],
     queryFn: fetchComments,
     getNextPageParam: (lastPage, pages) => {
-      console.log(lastPage.currPage, lastPage.pages);
+      // console.log(lastPage.currPage, lastPage.pages);
       const value =
         lastPage.currPage + 1 <= lastPage.pages
           ? lastPage.currPage + 1
           : undefined;
-      console.log(value);
+      // console.log(value);
       return value;
     },
     getPreviousPageParam: (firstPage, pages) => {
